@@ -1,0 +1,43 @@
+.container-calc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.container-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container-form input {
+    outline: none;
+    padding: 5px;
+}
+.container-form button {
+    cursor: pointer;
+}
+.operador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+}
+.resultado {
+    color: #0f0;
+    font-weight: 800;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.hitorico {
+    color: #f00;
+    font-weight: 800;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#calculo ,#historico  {
+    font-size: 14px;
+    font-weight: 800;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
