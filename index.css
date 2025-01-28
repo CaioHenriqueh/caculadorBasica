@@ -1,52 +1,48 @@
-.container-calc {
+body {
+    font-family: Arial, sans-serif;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    height: 100vh;
+    background-color: #f4f4f4;
 }
 
-.container-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.calculator {
+    display: grid;
+    grid-template-columns: repeat(4, 80px);
+    grid-gap: 10px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
-
-.container-form input {
-    outline: none;
-    padding: 5px;
-}
-.container-form button {
+.button {
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     cursor: pointer;
 }
-.operador {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    outline: none;
+.button:hover {
+    background-color: #ddd;
 }
-.resultado {
-    color: #0f0;
-    font-weight: 800;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+.screen {
+    grid-column: span 4;
+    padding: 20px;
+    font-size: 30px;
+    text-align: right;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
-.hitorico {
+#toast-container {
+    position: absolute;
+    bottom:50px;
+    right: 50px;
+}
+.me-auto {
     color: #f00;
-    font-weight: 800;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-#calculo ,#historico  {
-    font-size: 14px;
-    font-weight: 800;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-input[type=number]::-webkit-inner-spin-button { 
-    -webkit-appearance: none;
-    
-}
-input[type=number] { 
-   -moz-appearance: textfield;
-   appearance: textfield;
-
 }

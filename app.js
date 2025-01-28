@@ -1,63 +1,43 @@
-const primary = document.getElementById("primary-number");
-const operador = document.getElementById("operacao");
-const segundary = document.getElementById("segundary-number");
-const retorneCalculo = document.getElementById("calculo");
-const historico = document.getElementById("historico");
-const btn_submit = document.getElementById("btn-conta");
-
-
-const operatorCalc = (numero_one, operador, numero_two) => {
-    if (operador == "*") {
-        return numero_one * numero_two
-    } else if (operador == "/") {
-        return numero_one / numero_two
-    } else if (operador == "-") {
-        return numero_one - numero_two
-    }else if (operador == "+") {
-        return numero_one + numero_two
-    }
-
+const appendToScreen = (value) => {
+    document.getElementById('screen').value += value;
 }
 
-const validateNumeber = (numero_one , numero_two) => {
-
-    if(numero_one == "" || numero_two == "") {
-        return alert("Digite ao menos um numero");
+const calculate = () => {
+    const screen = document.getElementById('screen');
+    if (!screen.value) {
+        showToast('Faça alguma operação!');
+        return;
     }
 
+    try {
+        screen.value = eval(screen.value);
+    } catch {
+        screen.value = 'Erro';
+    }
 }
 
-const list_calcs = [];
+const clearScreen = () => {
+    document.getElementById('screen').value = '';
+}
 
 
+const showToast = (message) => {
+    const toastHTML = `
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Erro</strong>
+                <small>1 seg ago</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                ${message}
+            </div>
+        </div>`;
 
+    const toastContainer = document.getElementById('toast-container');
+    toastContainer.innerHTML = toastHTML;
 
-btn_submit.addEventListener("click", () => {
-
-    let primeiro_valor = Number(primary.value);
-    const operador_func =  operador.value;
-    let segundo_valor = Number(segundary.value);
-    validateNumeber(primeiro_valor, segundo_valor)
-
-
-    const result = operatorCalc(primeiro_valor, operador_func, segundo_valor)
-
-
-
-
-
-    retorneCalculo.innerHTML = `${primeiro_valor} ${operador_func} ${segundo_valor} = ${result}`
-
-    list_calcs.push(`${primeiro_valor} ${operador_func} ${segundo_valor} = ${result}`)
-
-
-
-    historico.innerHTML = list_calcs.join("<br>");
-    localStorage.setItem("resultados" , list_calcs.join("<br>"))
-
-
-})
-historico.innerHTML = localStorage.getItem("resultados")
-
-
-
+    const toastElement = toastContainer.querySelector('.toast');
+    const toast = new bootstrap.Toast(toastElement);
+    toast.show();
+}
