@@ -41,3 +41,12 @@
     font-weight: 800;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}

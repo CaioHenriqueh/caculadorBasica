@@ -43,6 +43,9 @@ btn_submit.addEventListener("click", () => {
     const result = operatorCalc(primeiro_valor, operador_func, segundo_valor)
 
 
+
+
+
     retorneCalculo.innerHTML = `${primeiro_valor} ${operador_func} ${segundo_valor} = ${result}`
 
     list_calcs.push(`${primeiro_valor} ${operador_func} ${segundo_valor} = ${result}`)
